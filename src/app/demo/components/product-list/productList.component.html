@@ -1,0 +1,36 @@
+<div class="card">
+    <h5>Product list</h5>
+
+    <p-table
+        [value]="products"
+        (onRowSelect)="onRowSelectProduct($event)"
+        (onRowUnselect)="onRowUnselectProduct($event)"
+        [rows]="5"
+        dataKey="title"
+        selectionMode="single"
+        [rowsPerPageOptions]="[10, 25, 50]"
+        [paginator]="true"
+        [tableStyle]="{ 'min-width': '50rem' }"
+    >
+        <ng-template pTemplate="header">
+            <tr>
+                <th>brand</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>description</th>
+                <th>price</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+            <tr [pSelectableRow]="product">
+                <td>{{ product.brand }}</td>
+                <td>{{ product.title }}</td>
+                <td>{{ product.category }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.price }} $</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+<productDetails [productDetails]="productDetails"></productDetails>

@@ -1,0 +1,51 @@
+<div class="card p-fluid">
+    <h5>Product Details</h5>
+    <div *ngIf="productDetails">
+        <div class="field">
+            <label htmlFor="title">title</label>
+            <input
+                pInputText
+                id="title"
+                type="text"
+                [(ngModel)]="productDetails.title"
+            />
+        </div>
+        <div class="field">
+            <label htmlFor="description">description</label>
+            <input
+                pInputText
+                id="description"
+                type="text"
+                [(ngModel)]="productDetails.description"
+            />
+        </div>
+        <div class="field">
+            <label htmlFor="brand">brand</label>
+            <input
+                pInputText
+                id="brand"
+                type="text"
+                [(ngModel)]="productDetails.brand"
+            />
+        </div>
+        <div class="field">
+            <label htmlFor="price">price</label>
+            <input
+                pInputText
+                id="price"
+                type="text"
+                [(ngModel)]="productDetails.price"
+            />
+        </div>
+        <button
+            pButton
+            pRipple
+            type="button"
+            label="Update"
+            class="p-button-success"
+            (click)="test()"
+        ></button>
+    </div>
+
+    <div *ngIf="!productDetails">Chưa chọn product</div>
+</div>
