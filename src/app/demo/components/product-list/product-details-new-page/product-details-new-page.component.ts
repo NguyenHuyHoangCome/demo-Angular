@@ -26,7 +26,7 @@ import {
 export class ProductDetailsNewPageComponent implements OnInit, OnChanges {
     profileForm = this.formBuilder.group({
         title: ['', Validators.required],
-        description: [''],
+        description: ['',],
         brand: [''],
         price: [''],
         address: this.formBuilder.group({
@@ -37,7 +37,8 @@ export class ProductDetailsNewPageComponent implements OnInit, OnChanges {
         }),
     });
 
-    favoriteColorControl = new FormControl('');
+    favoriteColorControl = new FormControl('', [Validators.required]);
+
     productDetails: any;
     private routeSub: Subscription;
 
@@ -53,10 +54,8 @@ export class ProductDetailsNewPageComponent implements OnInit, OnChanges {
     }
 
     test() {
-        console.log(this.favoriteColorControl);
-        console.log(this.productDetails);
-        console.log(this.profileForm.value, 'profileForm');
-        console.log(this.profileForm, 'profileForm');
+        console.log(this.profileForm);
+
         // this.favoriteColorControl.setValue('Nancy');
     }
 

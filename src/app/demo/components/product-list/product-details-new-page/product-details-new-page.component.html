@@ -6,6 +6,18 @@
             (onClick)="onClickGoBack()"
         ></p-button>
     </div>
+    <!-- <input pInputText type="text" [formControl]="favoriteColorControl" />
+    <div
+        style="color: red"
+        *ngIf="favoriteColorControl.invalid"
+        class="alert alert-danger"
+    >
+        <div *ngIf="favoriteColorControl.errors?.['required']">
+            Name is required.
+        </div>
+    </div>
+
+    <p-button label="test" class="w-3" (onClick)="test()"></p-button> -->
 
     <h5>Product Details</h5>
     <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
@@ -18,6 +30,9 @@
                     type="text"
                     formControlName="title"
                 />
+                <small *ngIf="profileForm.invalid" style="color: red"
+                    >Yêu cầu nhập title</small
+                >
             </div>
             <div class="field">
                 <label htmlFor="description">description</label>
