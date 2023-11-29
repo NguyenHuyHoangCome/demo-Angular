@@ -1,0 +1,60 @@
+<div class="card p-fluid">
+    <div class="col-1 pl-0">
+        <p-button
+            label="Trở về"
+            class="w-3"
+            (onClick)="onClickGoBack()"
+        ></p-button>
+    </div>
+
+    <h5>Product Details</h5>
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+        <div>
+            <div class="field">
+                <label htmlFor="title">title</label>
+                <input
+                    pInputText
+                    id="title"
+                    type="text"
+                    formControlName="title"
+                />
+            </div>
+            <div class="field">
+                <label htmlFor="description">description</label>
+                <input
+                    pInputText
+                    id="description"
+                    type="text"
+                    formControlName="description"
+                />
+            </div>
+            <div class="field">
+                <label htmlFor="brand">brand</label>
+                <input
+                    pInputText
+                    id="brand"
+                    type="text"
+                    formControlName="brand"
+                />
+            </div>
+            <div class="field">
+                <label htmlFor="price">price</label>
+                <input
+                    pInputText
+                    id="price"
+                    type="text"
+                    formControlName="price"
+                />
+            </div>
+            <button
+                pButton
+                pRipple
+                [disabled]="!profileForm.valid"
+                type="button"
+                label="Update"
+                class="p-button-success"
+                (click)="onSubmit()"
+            ></button>
+        </div>
+    </form>
+</div>

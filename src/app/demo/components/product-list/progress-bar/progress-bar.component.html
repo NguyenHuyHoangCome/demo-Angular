@@ -1,0 +1,20 @@
+<p>progress-bar works!</p>
+<div>{{ valueProgressBar }}</div>
+<div>
+    <p>pipe transformed datas</p>
+    <p>Date today : {{ dateToday }}</p>
+    <p>Date today pipe : {{ dateToday | date | uppercase }}</p>
+    <p>Date today pipe : {{ dateToday | date : "short" | lowercase }}</p>
+    <p>Name pipe : {{ name | uppercase }}</p>
+</div>
+<div>
+    <div class="mb-3 mt-3">
+        <p-button
+            label="button From chill components for clear"
+            (onClick)="clickClearValue()"
+            severity="warning"
+        ></p-button>
+    </div>
+
+    <p-progressBar [value]="valueProgressBar"></p-progressBar>
+</div>

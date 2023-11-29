@@ -1,9 +1,38 @@
 <div class="card">
     <h5>Product list</h5>
+    <input #inputTextTestFocus pInputText id="title" type="text" />
+    <br />
+    <div class="mb-3">
+        <p-button label="Cộng" (onClick)="clickAddValue()"></p-button>
+        <p-button
+            label="Trừ"
+            (onClick)="clickRemoveValue()"
+            class="ml-3"
+            severity="warning"
+        ></p-button>
 
+        <p-button
+            label="Click chạy hàm từ cha sang con"
+            (onClick)="progressBarClick.clickClearValue()"
+            class="mt-3"
+        ></p-button>
+    </div>
+
+    <!-- progressBarClick là instance của progress-bar -->
+    <progress-bar
+        appStyle
+        color="blue"
+        #progressBarClick
+        (onClearFromChill)="onClear()"
+        [valueProgressBar]="valueProgressBar"
+    ></progress-bar>
+
+    <p class="mt-2 mb-3"></p>
     <p-table
+        #dataTable
         [value]="products"
         (onRowSelect)="onRowSelectProduct($event)"
+        (onRowCollapse)="test($event)"
         (onRowUnselect)="onRowUnselectProduct($event)"
         [rows]="5"
         dataKey="title"
@@ -19,6 +48,7 @@
                 <th>Category</th>
                 <th>description</th>
                 <th>price</th>
+                <th>Button</th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-product>
@@ -28,6 +58,12 @@
                 <td>{{ product.category }}</td>
                 <td>{{ product.description }}</td>
                 <td>{{ product.price }} $</td>
+                <td>
+                    <p-button
+                        label="Chi tiết"
+                        (onClick)="test(product)"
+                    ></p-button>
+                </td>
             </tr>
         </ng-template>
     </p-table>

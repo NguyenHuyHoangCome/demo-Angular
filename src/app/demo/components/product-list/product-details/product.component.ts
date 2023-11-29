@@ -4,6 +4,7 @@ import {
     Input,
     EventEmitter,
     Output,
+    NgZone,
     SimpleChanges,
 } from '@angular/core';
 
@@ -12,14 +13,18 @@ import {
     templateUrl: './product.component.html',
 })
 export class ProductsComponent implements OnInit {
-    binding: string = 'hoang yeu linh';
+    binding: string = 'hoang';
+    @Input() searchVal = 'hi';
+    @Input() productDetails: any;
+    data: any;
+    constructor(private ngZone: NgZone) {}
 
-    @Input()
-    productDetails: any;
     title: 'hi';
 
     test() {
         console.log('hi', this.productDetails);
     }
-    ngOnInit() {}
+    ngOnInit() {
+      
+    }
 }

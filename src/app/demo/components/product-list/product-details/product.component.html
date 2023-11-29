@@ -1,6 +1,6 @@
 <div class="card p-fluid">
     <h5>Product Details</h5>
-    <div *ngIf="productDetails">
+    <div *ngIf="productDetails; else notData">
         <div class="field">
             <label htmlFor="title">title</label>
             <input
@@ -47,5 +47,6 @@
         ></button>
     </div>
 
-    <div *ngIf="!productDetails">Chưa chọn product</div>
+    <ng-template #notData> Chưa chọn product</ng-template>
+    <!-- <div *ngIf="!productDetails">Chưa chọn product</div> -->
 </div>
